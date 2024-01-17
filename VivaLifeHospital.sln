@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AACB5724-7773-4B4F-BF44-85DD9EF87C2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VivaLife.Domain", "Core\VivaLife.Domain\VivaLife.Domain.csproj", "{96329435-A0AE-402A-A104-4C4B5FFD7FB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{A356EFBA-3389-4EA5-8837-401D7E6767E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VivaLifeHospital.Persistance", "Infrastucture\VivaLifeHospital.Persistance\VivaLifeHospital.Persistance.csproj", "{BB28C37C-D344-4BD6-A32F-CA6FEBBEE671}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VivaLifeHospital.Application", "Core\VivaLifeHospital.Application\VivaLifeHospital.Application.csproj", "{C61FBBEB-4323-4762-B323-03C9F31317EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BC2998E4-D6A6-4345-9FEE-CF9FA7CC1F6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VivaLifeHospital.WebApi", "Presentation\VivaLifeHospital.WebApi\VivaLifeHospital.WebApi.csproj", "{6E1916E6-1A36-4EA8-9BD5-BC2C5E259C71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96329435-A0AE-402A-A104-4C4B5FFD7FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96329435-A0AE-402A-A104-4C4B5FFD7FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96329435-A0AE-402A-A104-4C4B5FFD7FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96329435-A0AE-402A-A104-4C4B5FFD7FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB28C37C-D344-4BD6-A32F-CA6FEBBEE671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB28C37C-D344-4BD6-A32F-CA6FEBBEE671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB28C37C-D344-4BD6-A32F-CA6FEBBEE671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB28C37C-D344-4BD6-A32F-CA6FEBBEE671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C61FBBEB-4323-4762-B323-03C9F31317EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61FBBEB-4323-4762-B323-03C9F31317EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61FBBEB-4323-4762-B323-03C9F31317EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61FBBEB-4323-4762-B323-03C9F31317EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E1916E6-1A36-4EA8-9BD5-BC2C5E259C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E1916E6-1A36-4EA8-9BD5-BC2C5E259C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E1916E6-1A36-4EA8-9BD5-BC2C5E259C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E1916E6-1A36-4EA8-9BD5-BC2C5E259C71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96329435-A0AE-402A-A104-4C4B5FFD7FB0} = {AACB5724-7773-4B4F-BF44-85DD9EF87C2E}
+		{BB28C37C-D344-4BD6-A32F-CA6FEBBEE671} = {A356EFBA-3389-4EA5-8837-401D7E6767E4}
+		{C61FBBEB-4323-4762-B323-03C9F31317EB} = {AACB5724-7773-4B4F-BF44-85DD9EF87C2E}
+		{6E1916E6-1A36-4EA8-9BD5-BC2C5E259C71} = {BC2998E4-D6A6-4345-9FEE-CF9FA7CC1F6D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D011F3A-5596-44BF-B964-B78685F74C1A}
+	EndGlobalSection
+EndGlobal
