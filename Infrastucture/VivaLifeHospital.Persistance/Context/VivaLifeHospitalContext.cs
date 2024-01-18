@@ -24,7 +24,6 @@ namespace VivaLifeHospital.Persistance.Context
         public DbSet<Department> Departments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<MedicalProgram> MedicalPrograms { get; set;}
-        public DbSet<Patient> Patients { get; set; }
         public DbSet<Pricing> Pricings{ get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set;}
