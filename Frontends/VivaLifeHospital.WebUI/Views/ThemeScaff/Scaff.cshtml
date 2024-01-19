@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Scaff</title>
+    @await Component.InvokeAsync("_HeadComponenPartial")
+
+
+</head>
+<body>
+    @await Component.InvokeAsync("_TopBarComponentPartial")
+    @await Component.InvokeAsync("_NavBarComponentPartial")
+
+    @RenderBody()
+    @await Component.InvokeAsync("_FooterComponentPartial")
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    @await Component.InvokeAsync("_ThemeScriptsComponentPartial")
+
+
+</body>
+</html>
+
+
+
