@@ -4,5 +4,14 @@
     Layout = "~/Views/ThemeScaff/Scaff.cshtml";
 }
 
-<h1>hakkımızda sayfası</h1>
+<!-- About Start -->
+@await Component.InvokeAsync("_AboutUsWithIconsViewComponentPartial")
+<!-- About End -->
 
+<!-- Search Start -->
+@await Component.InvokeAsync("_SearchDoctorViewComponentPartial")
+<!-- Search End -->
+
+<!-- Team Start -->
+@await Component.InvokeAsync("_HealthCareProfViewComponentPartial")
+<!-- Team End -->

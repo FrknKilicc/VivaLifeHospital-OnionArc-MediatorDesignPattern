@@ -20,4 +20,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VivaLifeHospital.Dto\VivaLifeHospital.Dto.csproj" />
+  </ItemGroup>
+
 </Project>
