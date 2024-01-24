@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VivaLife.Domain.Entites
+namespace VivaLifeHospital.Application.Features.Mediator.Results.PricingResult
 {
-    public class Pricing
+    public class GetPricingResult
     {
         public int PricingId { get; set; }
         public string Name { get; set; }

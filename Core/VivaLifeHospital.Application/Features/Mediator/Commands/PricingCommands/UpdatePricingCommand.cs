@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VivaLife.Domain.Entites
+namespace VivaLifeHospital.Application.Features.Mediator.Commands.PricingCommands
 {
-    public class Pricing
+    public class UpdatePricingCommand:IRequest
     {
         public int PricingId { get; set; }
         public string Name { get; set; }
