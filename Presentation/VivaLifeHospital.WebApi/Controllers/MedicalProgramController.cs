@@ -47,5 +47,11 @@ namespace VivaLifeHospital.WebApi.Controllers
             await _mediator.Send(new RemoveMedicalProgramCommand(id));
             return Ok("Bilgi Başarıyla Silindi");
         }
+        [HttpGet("GetMedicalProgramWithPrice")]
+        public async Task<IActionResult> GetMedicalProgramWithPrice()
+        {
+            var value = await _mediator.Send(new GetMedicalProgramWithPriceQuery());
+            return Ok(value);
+        }
     }
 }

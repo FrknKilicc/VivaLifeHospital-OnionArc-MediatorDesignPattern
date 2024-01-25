@@ -1,9 +1,11 @@
 using VivaLifeHospital.Application.Interfaces;
 using VivaLifeHospital.Application.Interfaces.DoctorInterfaces;
+using VivaLifeHospital.Application.Interfaces.MedicalProgramInterfaces;
 using VivaLifeHospital.Application.Services;
 using VivaLifeHospital.Persistance.Context;
 using VivaLifeHospital.Persistance.Repositories;
 using VivaLifeHospital.Persistance.Repositories.DoctorRepositories;
+using VivaLifeHospital.Persistance.Repositories.MedicalProgramRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,7 @@ builder.Services.AddScoped<VivaLifeHospitalContext>();
 //Configure Irepos
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IDoctorRepository), typeof(DoctorRepository));
+builder.Services.AddScoped(typeof(IMedicalProgramRepository), typeof(MedicalProgramRepository));
 builder.Services.SaveAppServices(builder.Configuration);
 
 builder.Services.AddControllers();
