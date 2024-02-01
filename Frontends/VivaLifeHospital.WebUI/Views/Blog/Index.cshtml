@@ -1,0 +1,9 @@
+﻿@model List<ResultBlogDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/ThemeScaff/Scaff.cshtml";
+}
+
+
+
+@await Component.InvokeAsync("_BlogListViewComponentPartial")
