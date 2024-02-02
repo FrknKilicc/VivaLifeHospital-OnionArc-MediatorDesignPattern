@@ -22,6 +22,18 @@ namespace VivaLifeHospital.WebApi.Controllers
             var value = await _mediator.Send(new GetBlogQuery());
             return Ok(value);
         }
+        [HttpGet("GetBlogWithAuthorNdCategory")]
+        public async Task<IActionResult> GetBlogWithAuthorNdCategory()
+        {
+            var value = await _mediator.Send(new GetBlogWithAuthorNdCategoryQuery());
+            return Ok(value);
+        }
+        [HttpGet("GetLast3Blog")]
+        public async Task<IActionResult> GetLast3Blog()
+        {
+            var value = await _mediator.Send(new GetLast3BlogQuery());
+            return Ok(value);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBlogById(int id)
         {
@@ -46,5 +58,6 @@ namespace VivaLifeHospital.WebApi.Controllers
             await _mediator.Send(new RemoveBlogCommand(id));
             return Ok("Blog Bilgisi Başarıyla Silindi");
         }
+       
     }
 }

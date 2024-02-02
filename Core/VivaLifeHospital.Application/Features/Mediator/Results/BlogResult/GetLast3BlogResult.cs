@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VivaLifeHospital.Dto.BlogDtos
+namespace VivaLifeHospital.Application.Features.Mediator.Results.BlogResult
 {
-    public  class ResultBlogDto
+    public class GetLast3BlogResult
     {
         public int BlogId { get; set; }
         public string BlogImgUrl { get; set; }
@@ -18,6 +18,5 @@ namespace VivaLifeHospital.Dto.BlogDtos
         public string AuthorImg { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-
     }
 }
