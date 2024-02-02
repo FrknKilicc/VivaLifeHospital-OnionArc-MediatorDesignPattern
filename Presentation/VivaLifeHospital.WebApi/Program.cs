@@ -1,11 +1,13 @@
 using VivaLifeHospital.Application.Interfaces;
 using VivaLifeHospital.Application.Interfaces.BlogInterfaces;
+using VivaLifeHospital.Application.Interfaces.DepartmentInterfaces;
 using VivaLifeHospital.Application.Interfaces.DoctorInterfaces;
 using VivaLifeHospital.Application.Interfaces.MedicalProgramInterfaces;
 using VivaLifeHospital.Application.Services;
 using VivaLifeHospital.Persistance.Context;
 using VivaLifeHospital.Persistance.Repositories;
 using VivaLifeHospital.Persistance.Repositories.BlogRepositories;
+using VivaLifeHospital.Persistance.Repositories.DepartmentRepositories;
 using VivaLifeHospital.Persistance.Repositories.DoctorRepositories;
 using VivaLifeHospital.Persistance.Repositories.MedicalProgramRepositories;
 
@@ -20,6 +22,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IDoctorRepository), typeof(DoctorRepository));
 builder.Services.AddScoped(typeof(IMedicalProgramRepository), typeof(MedicalProgramRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+builder.Services.AddScoped(typeof(IDepartmentRepository), typeof(DepartmentRepository));
 builder.Services.SaveAppServices(builder.Configuration);
 
 builder.Services.AddControllers();
