@@ -26,6 +26,7 @@ namespace VivaLifeHospital.Application.Features.Mediator.Handlers.DepartmentHand
             return value.Select(x=> new GetDepartmentWithDoctorResult
             {
                 DepartmentId=x.DepartmentId,
+                DepartmentName=x.Department.Name,
                 Name=x.Name,
                 DoctorId=x.DoctorId,
             }).ToList();

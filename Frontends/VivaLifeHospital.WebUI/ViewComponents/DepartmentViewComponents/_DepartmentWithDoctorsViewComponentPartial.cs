@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using Newtonsoft.Json;
 using VivaLifeHospital.Dto.DepartmentDtos;
 
@@ -13,11 +15,10 @@ namespace VivaLifeHospital.WebUI.ViewComponents.DepartmentViewComponents
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<IViewComponentResult> InvokeAsync(int id)
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            ViewBag.DepId = id;    
             var client= _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7226/api/Department/GetDepartmentWithDoctor/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:7226/api/Department");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData= await responseMessage.Content.ReadAsStringAsync();
@@ -26,5 +27,6 @@ namespace VivaLifeHospital.WebUI.ViewComponents.DepartmentViewComponents
             }
             return View();
         }
+        
     }
 }

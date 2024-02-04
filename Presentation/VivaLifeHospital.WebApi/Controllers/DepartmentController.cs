@@ -32,21 +32,15 @@ namespace VivaLifeHospital.WebApi.Controllers
         public async Task<IActionResult> GetDepartmentWithDoctor(int id)
         {
             var value = await _mediator.Send(new GetDepartmentWithDoctorQuery(id));
-            return Ok(new { DepartmentsWithDoctors = value });
+            return Ok(value);
         }
-
         [HttpPost]
         public async Task<IActionResult> CreateDepartment(CreateDepartmentCommand command)
         {
             await _mediator.Send(command);
             return Ok("Bölüm Bilgisi Başarıyla Eklendi ");
         }
-        [HttpPost("DrWithDepartment")]
-        public async Task<IActionResult> DrWithDepartment(GetDepartmentByIdQuery query)
-        {
-           var values =  await _mediator.Send(query);
-            return Ok(values);
-        }
+       
         [HttpPut]
         public async Task<IActionResult> UpdateDepartment(UpdateDepartmentCommand command)
         {

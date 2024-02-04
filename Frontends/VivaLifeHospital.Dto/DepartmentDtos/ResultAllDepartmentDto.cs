@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VivaLifeHospital.Application.Features.Mediator.Results.DepartmentResult
+namespace VivaLifeHospital.Dto.DepartmentDtos
 {
-    public class GetDepartmentWithDoctorResult
+    public class ResultAllDepartmentDto
     {
         public int DepartmentId { get; set; }
-        public string DepartmentName { get; set; }
         public string Name { get; set; }
-        public int DoctorId { get; set; }
     }
 }

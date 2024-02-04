@@ -22,7 +22,7 @@ namespace VivaLifeHospital.Persistance.Repositories.DepartmentRepositories
        
         public List<Doctor> GetDepartmentWithDoctor(int id)
         {
-            return _context.Doctors
+            return _context.Doctors.Include(x=>x.Department)
             .Where(d => d.DepartmentId == id)
             .ToList();
 
