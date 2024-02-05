@@ -28,6 +28,14 @@ namespace VivaLifeHospital.WebApi.Controllers
             var values = await _mediator.Send(new GetAllDoctorWithDepartmentQuery());
             return Ok(values);
         }
+
+        [HttpGet("GetDoctorWithDepartmentBySearch")]
+        public async Task<IActionResult> GetDoctorWithDepartmentBySearch(int id,string search)
+        {
+            var values = await _mediator.Send(new GetDoctorBySearchQuery(id,search));
+            return Ok(values);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDoctorById(int id)
         {

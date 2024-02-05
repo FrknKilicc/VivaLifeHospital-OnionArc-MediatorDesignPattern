@@ -24,5 +24,11 @@ namespace VivaLifeHospital.Persistance.Repositories.DoctorRepositories
             var values = _context.Doctors.Include(x=>x.Department).ToList();
             return values;
         }
+
+        public List<Doctor> GetDoctorWithDepartmentBySearch(int id, string search)
+        {
+            var values = _context.Doctors.Include(x => x.Department).Where(z => z.DepartmentId == id && ( string.IsNullOrEmpty(search) || z.Name.Contains(search))).ToList();
+            return values;
+        }
     }
 }

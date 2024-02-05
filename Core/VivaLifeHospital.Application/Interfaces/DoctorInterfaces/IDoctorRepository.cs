@@ -10,5 +10,6 @@ namespace VivaLifeHospital.Application.Interfaces.DoctorInterfaces
     public interface IDoctorRepository
     {
         public List<Doctor> GetAllDoctorWithDeparment();
+        public List<Doctor> GetDoctorWithDepartmentBySearch(int id,string search);
     }
 }
