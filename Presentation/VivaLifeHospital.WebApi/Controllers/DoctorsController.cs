@@ -30,9 +30,9 @@ namespace VivaLifeHospital.WebApi.Controllers
         }
 
         [HttpGet("GetDoctorWithDepartmentBySearch")]
-        public async Task<IActionResult> GetDoctorWithDepartmentBySearch(int id,string search)
+        public async Task<IActionResult> GetDoctorWithDepartmentBySearch(int id,string? search)
         {
-            var values = await _mediator.Send(new GetDoctorBySearchQuery(id,search));
+            var values = await _mediator.Send(new GetDoctorBySearchQuery(id,search ?? ""));
             return Ok(values);
         }
 

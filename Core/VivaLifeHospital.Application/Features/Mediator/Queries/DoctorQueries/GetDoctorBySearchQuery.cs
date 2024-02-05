@@ -10,15 +10,16 @@ namespace VivaLifeHospital.Application.Features.Mediator.Queries.DoctorQueries
 {
     public class GetDoctorBySearchQuery:IRequest<List<GetDoctorBySearchResult>>
     {
-        public GetDoctorBySearchQuery(int id, string search)
+        public GetDoctorBySearchQuery(int ıd, string? search)
         {
-            Id = id;
+            Id = ıd;
             Search = search;
         }
 
         public int Id { get; set; }
-        public string Search { get; set; }
+        public string? Search { get; set; }
 
+       
 
     }
 }

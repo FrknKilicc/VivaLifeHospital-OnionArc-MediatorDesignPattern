@@ -21,7 +21,7 @@ namespace VivaLifeHospital.Application.Features.Mediator.Handlers.DoctorHandlers
 
         public async Task<List<GetDoctorBySearchResult>> Handle(GetDoctorBySearchQuery request, CancellationToken cancellationToken)
         {
-            var values =  _repository.GetDoctorWithDepartmentBySearch(request.Id, request.Search);
+            var values =  _repository.GetDoctorWithDepartmentBySearch(request.Id, request.Search ?? "");
             return values.Select(x => new GetDoctorBySearchResult
             {
                 DepartmentId=x.DepartmentId,

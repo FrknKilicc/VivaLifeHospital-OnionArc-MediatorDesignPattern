@@ -1,4 +1,5 @@
-﻿<div class="container-fluid bg-primary my-5 py-5">
+﻿@model List<ResultAllDepartmentDto>
+<div class="container-fluid bg-primary my-5 py-5">
     <div class="container py-5">
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
             <h5 class="d-inline-block text-white text-uppercase border-bottom border-5">Find A Doctor</h5>
@@ -7,15 +8,78 @@
         </div>
         <div class="mx-auto" style="width: 100%; max-width: 600px;">
             <div class="input-group">
-                <select class="form-select border-primary w-25" style="height: 60px;">
-                    <option selected>Department</option>
-                    <option value="1">Department 1</option>
-                    <option value="2">Department 2</option>
-                    <option value="3">Department 3</option>
+                <select id="dep" class="form-select border-primary w-25" style="height: 60px;">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.DepartmentId">@item.Name</option>
+                    }
                 </select>
-                <input type="text" class="form-control border-primary w-50" placeholder="Keyword">
-                <button class="btn btn-dark border-0 w-25">Search</button>
+                <input id="searchArea222" type="text" class="form-control border-primary w-50" placeholder="Kelime Girin">
+                <button id="searchButton222" class="btn btn-dark border-0 w-25">Search</button>
+            </div>
+            <div id="doctorList3" class="owl-carousel team-carousel position-relative" style="display:flex;flex-direction:row;column-gap:10px; width:125%;margin-top:45px;">
+              
             </div>
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#searchButton222').click(function () {
+            performSearch();
+        });
+        // $('#dep, #searchArea').change(function () {
+        //     performSearch();
+        // });
+        function performSearch() {
+            var departmanId = $('#dep').val();
+            var searchKeyword = $('#searchArea222').val();
+            $.ajax({
+                url: '/Doctor/GetDoctorWithDepartmentBySearch' + '/' + departmanId + '?search=' + searchKeyword,
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    id: departmanId,
+                    search: searchKeyword
+                },
+                success: function (doktorlar) {
+                    $('#doctorList3').empty();
+                    $.each(doktorlar, function (i, doktor) {
+                        var doctorSquare = $('<div class="team-item"></div>').css({
+                            'display': 'inline-block',
+                            'margin-right': '10px',
+                            'width': '100%',
+                        });
+                        var innerHtml = `
+                 <div class="row g-0 bg-light rounded overflow-hidden">
+                    <div class="col-12 col-sm-5 h-100">
+                        <img class="img-fluid h-100" src="${doktor.doctorImgUrl}" style="object-fit: cover;">
+                    </div>
+                    <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                        <div class="mt-auto p-4">
+                            <h3>${doktor.name}</h3>
+                            <h6 class="fw-normal fst-italic text-primary mb-4">${doktor.departmentName}</h6>
+                            <p class="m-0">${doktor.description}</p>
+                        </div>
+                        <div class="d-flex mt-auto border-top p-4">
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>`;
+
+                        doctorSquare.html(innerHtml);
+                        $('#doctorList3').append(doctorSquare);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+    });
+</script>
+
