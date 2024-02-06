@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,6 @@ namespace VivaLifeHospital.WebUI.Controllers
             try
             {
                 var client = _httpClientFactory.CreateClient();
-                
                 var uriBuilder = new UriBuilder("https://localhost:7226/api/Doctors/GetDoctorWithDepartmentBySearch");
                 var query = $"id={id}&search={search}";
                 uriBuilder.Query = query;
@@ -46,5 +46,7 @@ namespace VivaLifeHospital.WebUI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Internal Server Error: {ex.Message}");
             }
         }
+
+      
     }
 }
