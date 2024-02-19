@@ -14,7 +14,13 @@ namespace VivaLifeHospital.Application.Features.Mediator.Handlers.BlogHandlers
     public class GetBlogByIdQueryHandler : IRequestHandler<GetBlogByIdQuery, GetBlogByIdResult>
     {
         private readonly IRepository<Blog> _repository;
-    public async Task<GetBlogByIdResult> Handle(GetBlogByIdQuery request, CancellationToken cancellationToken)
+
+        public GetBlogByIdQueryHandler(IRepository<Blog> repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<GetBlogByIdResult> Handle(GetBlogByIdQuery request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.Id);
             return new GetBlogByIdResult

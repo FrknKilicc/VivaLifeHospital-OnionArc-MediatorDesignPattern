@@ -2,7 +2,7 @@
 <div class="container-fluid py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Blog Post</h5>
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Blog</h5>
             <h1 class="display-4">Blog Yazılarımızı İnceleyin</h1>
         </div>
         <div class="row g-5">
@@ -12,10 +12,11 @@
                     <div class="bg-light rounded overflow-hidden">
                         <img class="img-fluid w-100" src="@item.BlogImgUrl" alt="">
                         <div class="p-4">
-                            <a class="h3 d-block mb-3" href="">@item.Title</a>
+                            <a class="h3 d-block mb-3" href="/blog/blogdetail/@item.BlogId">@item.Title</a>
                             <p class="m-0">
                                 @item.Description
                             </p>
+                            <a class="btn btn-success" href="/blog/blogdetail/@item.BlogId">Devamını oku</a>
                         </div>
                         <div class="d-flex justify-content-between border-top p-4">
                             <div class="d-flex align-items-center">
@@ -29,12 +30,8 @@
                         </div>
                     </div>
                 </div>
-
+               
             }
-
-            <div class="col-12 text-center">
-                <button class="btn btn-primary py-3 px-5">Daha Fazla Yükle</button>
-            </div>
         </div>
     </div>
 </div>
