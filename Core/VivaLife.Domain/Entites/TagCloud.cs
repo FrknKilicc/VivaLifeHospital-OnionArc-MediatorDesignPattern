@@ -10,7 +10,7 @@ namespace VivaLife.Domain.Entites
     {
         public int TagCloudId { get; set; }
         public string TagName { get; set; }
-        public string  BlogId { get; set; }
+        public int BlogId { get; set; }
         public Blog Blog { get; set; }
     }
 }

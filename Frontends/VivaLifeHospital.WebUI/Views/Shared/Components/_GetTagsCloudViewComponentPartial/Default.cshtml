@@ -1,0 +1,11 @@
+﻿@model List<ResultTagCloud>
+<div class="mb-5">
+    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">Tag Cloud</h4>
+    <div class="d-flex flex-wrap m-n1">
+        @foreach(var item in Model)
+        {
+            <a href="" class="btn btn-primary m-1">@item.TagName</a>
+        }
+    </div>
+</div>
+<!-- Tags End -->

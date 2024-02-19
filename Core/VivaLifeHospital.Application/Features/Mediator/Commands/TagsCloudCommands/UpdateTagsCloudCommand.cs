@@ -11,6 +11,6 @@ namespace VivaLifeHospital.Application.Features.Mediator.Commands.TagsCloudComma
     {
         public int TagCloudId { get; set; }
         public string TagName { get; set; }
-        public string BlogId { get; set; }
+        public int BlogId { get; set; }
     }
 }

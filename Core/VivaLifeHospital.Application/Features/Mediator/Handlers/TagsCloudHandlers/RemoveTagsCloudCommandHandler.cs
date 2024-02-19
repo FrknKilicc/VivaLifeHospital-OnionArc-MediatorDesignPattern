@@ -10,21 +10,19 @@ using VivaLifeHospital.Application.Interfaces;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Handlers.TagsCloudHandlers
 {
-    public class UpdateTagsCloudCommandHandler : IRequestHandler<UpdateTagsCloudCommand>
+    public class RemoveTagsCloudCommandHandler : IRequestHandler<RemoveTagsCloudCommand>
     {
         private readonly IRepository<TagCloud> _repository;
 
-        public UpdateTagsCloudCommandHandler(IRepository<TagCloud> repository)
+        public RemoveTagsCloudCommandHandler(IRepository<TagCloud> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(UpdateTagsCloudCommand request, CancellationToken cancellationToken)
+        public async Task Handle(RemoveTagsCloudCommand request, CancellationToken cancellationToken)
         {
-           var values= await _repository.GetByIdAsync(request.TagCloudId);
-            values.TagName = request.TagName;
-            values.BlogId = request.BlogId;
-            await _repository.UpdateAsync(values);
+         var values = await _repository.GetByIdAsync(request.Id);
+          await _repository.RemoveAsync(values);
         }
     }
 }

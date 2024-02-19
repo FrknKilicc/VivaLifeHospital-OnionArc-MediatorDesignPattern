@@ -10,6 +10,6 @@ namespace VivaLifeHospital.Application.Features.Mediator.Commands.TagsCloudComma
     public class CreateTagsCloudCommand:IRequest
     {
         public string TagName { get; set; }
-        public string BlogId { get; set; }
+        public int BlogId { get; set; }
     }
 }
