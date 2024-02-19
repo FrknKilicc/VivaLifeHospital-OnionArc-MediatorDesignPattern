@@ -17,5 +17,7 @@ namespace VivaLife.Domain.Entites
         public Author Author { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        public int TagCloudId { get; set; } 
+        public List<TagCloud> Tags { get; set; }
     }
 }

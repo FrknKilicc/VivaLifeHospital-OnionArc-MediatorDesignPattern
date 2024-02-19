@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VivaLifeHospital.Persistance.Context;
 
@@ -11,9 +12,11 @@ using VivaLifeHospital.Persistance.Context;
 namespace VivaLifeHospital.Persistance.Migrations
 {
     [DbContext(typeof(VivaLifeHospitalContext))]
-    partial class VivaLifeHospitalContextModelSnapshot : ModelSnapshot
+    [Migration("20240219154253_edit_Comment_Entity")]
+    partial class edit_Comment_Entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,9 +124,6 @@ namespace VivaLifeHospital.Persistance.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TagCloudId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -333,32 +333,6 @@ namespace VivaLifeHospital.Persistance.Migrations
                     b.ToTable("Services");
                 });
 
-            modelBuilder.Entity("VivaLife.Domain.Entites.TagCloud", b =>
-                {
-                    b.Property<int>("TagCloudId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TagCloudId"));
-
-                    b.Property<string>("BlogId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("BlogId1")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TagName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TagCloudId");
-
-                    b.HasIndex("BlogId1");
-
-                    b.ToTable("TagsCloud");
-                });
-
             modelBuilder.Entity("VivaLife.Domain.Entites.Testimonial", b =>
                 {
                     b.Property<int>("TestimonialID")
@@ -427,22 +401,6 @@ namespace VivaLifeHospital.Persistance.Migrations
                         .IsRequired();
 
                     b.Navigation("Pricing");
-                });
-
-            modelBuilder.Entity("VivaLife.Domain.Entites.TagCloud", b =>
-                {
-                    b.HasOne("VivaLife.Domain.Entites.Blog", "Blog")
-                        .WithMany("Tags")
-                        .HasForeignKey("BlogId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Blog");
-                });
-
-            modelBuilder.Entity("VivaLife.Domain.Entites.Blog", b =>
-                {
-                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Category", b =>
