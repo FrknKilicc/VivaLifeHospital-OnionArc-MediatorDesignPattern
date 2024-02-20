@@ -8,7 +8,7 @@ using VivaLifeHospital.Application.Features.Mediator.Results.BlogResult;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Queries.BlogQueries
 {
-    public class GetBlogByIdWithAuthorIdQuery:IRequest<List<GetBlogByIdWithAuthorIdResult>>
+    public class GetBlogByIdWithAuthorIdQuery:IRequest<GetBlogByIdWithAuthorIdResult>
     {
         public int Id { get; set; }
 

@@ -10,10 +10,10 @@
             {
                 <div class="col-xl-4 col-lg-6">
                     <div class="bg-light rounded overflow-hidden">
-                        <img class="img-fluid w-100" src="@item.BlogImgUrl" alt="">
+                        <img class="img-fluid w-100" href="/blog/blogdetail/@item.BlogId" src="@item.BlogImgUrl" alt="">
                         <div class="p-4">
-                            <a class="h3 d-block mb-3" href="">@item.Title</a>
-                            <p class="m-0">
+                            <a class="h3 d-block mb-3" href="/blog/blogdetail/@item.BlogId">@item.Title</a>
+                            <p href="/blog/blogdetail/@item.BlogId" class="m-0">
                                 @item.Description
                             </p>
                         </div>

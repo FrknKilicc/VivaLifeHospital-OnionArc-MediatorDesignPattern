@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VivaLifeHospital.Application.Features.Mediator.Commands.BlogCommands;
+using VivaLifeHospital.Application.Features.Mediator.Handlers.BlogHandlers;
 using VivaLifeHospital.Application.Features.Mediator.Queries.BlogQueries;
 
 namespace VivaLifeHospital.WebApi.Controllers
@@ -40,6 +41,14 @@ namespace VivaLifeHospital.WebApi.Controllers
             var value = await _mediator.Send(new GetBlogByIdQuery(id));
             return Ok(value);
         }
+        [HttpGet("GetBlogByIdWithAuthor")]
+        public async Task<IActionResult> GetBlogByIdWithAuthor(int id)
+        {
+            var value = await _mediator.Send(new GetBlogByIdWithAuthorIdQuery(id));
+            return Ok(value);
+        }
+
+       
         [HttpPost]
         public async Task<IActionResult> CreateBlog(CreateBlogCommand command)
         {

@@ -1,4 +1,4 @@
-﻿@model ResultBlogDto
+﻿@model ResultBlogByIdWithAuthorDto
 <body>
     <!-- Blog Start -->
     <div class="container py-5">
@@ -8,34 +8,31 @@
                 <div class="mb-5">
                     <img class="img-fluid w-100 rounded mb-5" src="@Model.BlogImgUrl" alt="">
                     <h1 class="mb-4">@Model.Title</h1>
-                    <p>@Model.Description</p>
-                    <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores
-                        vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
-                        nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
-                        ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et,
-                        clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat
-                        justo dolore sit invidunt.</p>
-                    <p>Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor
-                        invidunt at est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam
-                        lorem sed. Magna amet sed rebum eos. Clita no magna no dolor erat diam tempor
-                        rebum consetetur, sanctus labore sed nonumy diam lorem amet eirmod. No at tempor
-                        sea diam kasd, takimata ea nonumy elitr sadipscing gubergren erat. Gubergren at
-                        lorem invidunt sadipscing rebum sit amet ut ut, voluptua diam dolores at
-                        sadipscing stet. Clita dolor amet dolor ipsum vero ea ea eos.</p>
-                    <div class="d-flex justify-content-between bg-light rounded p-4 mt-4 mb-4">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded-circle me-2" src="img/user.jpg" width="40" height="40" alt="">
-                            <span>John Sa</span>
+                    <p>@Model.BlogDescription</p>
+                    <section class="py-5">
+                        <div class="container overflow-hidden bsb-author-1">
+                            <div class="row justify-content-left gy-4 gy-md-0">
+                                <div class="col-12 col-md-3 col-xl-2 d-flex align-items-center justify-content-center">
+                                    <img class="img-fluid rounded-circle author-avatar" loading="lazy" src="@Model.AuthorImgUrl" alt="Img">
+                                </div>
+                                <div class="col-12 col-md-8 col-lg-6 col-xl-5 d-flex align-items-center justify-content-center">
+                                    <div class="text-center text-md-start author-content">
+                                        <h5 class="text-secondary fs-7">Blog Yazarı</h5>
+                                        <h2 class="fs-3 mb-2">@Model.Name</h2>
+                                        <p class="mb-1">@Model.Description</p>
+                                        <p class="mb-0">
+                                            @Model.CreatedDateTime.ToShortDateString()
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <span class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</span>
-                            <span class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</span>
-                        </div>
-                    </div>
+                    </section>
                 </div>
                 <!-- Comment -->
                 @await Component.InvokeAsync("_GetCommentByBlogIdViewComponentPartial", ViewBag.Id)
                 <!-- Comment End -->
+
                 <!-- Comment Form Start -->
                 <div class="bg-light rounded p-5">
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-white mb-4">Leave a comment</h4>
@@ -79,7 +76,7 @@
                 <!-- Category End -->
 
                 <!-- Recent Post Start -->
-                @await Component.InvokeAsync("_GetRecentBlogsWithAuthorNdCategoryComponentPartial")
+                @await Component.InvokeAsync("_GetRecentBlogsWithAuthorNdCategoryComponentPartial",ViewBag.Id)
                 <!-- Recent Post End -->
 
                 <!-- Image Start -->

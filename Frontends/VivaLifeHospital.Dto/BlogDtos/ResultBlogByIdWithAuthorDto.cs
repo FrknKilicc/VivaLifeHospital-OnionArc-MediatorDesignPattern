@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VivaLife.Domain.Entites;
 
-namespace VivaLifeHospital.Application.Features.Mediator.Results.BlogResult
+namespace VivaLifeHospital.Dto.BlogDtos
 {
-    public class GetBlogByIdWithAuthorIdResult
+    public class ResultBlogByIdWithAuthorDto
     {
         public int BlogId { get; set; }
         public string BlogImgUrl { get; set; }
@@ -18,6 +17,5 @@ namespace VivaLifeHospital.Application.Features.Mediator.Results.BlogResult
         public string Name { get; set; }
         public string Description { get; set; }
         public string AuthorImgUrl { get; set; }
-
     }
 }

@@ -6,15 +6,35 @@ using System.Text;
 using System.Threading.Tasks;
 using VivaLifeHospital.Application.Features.Mediator.Queries.BlogQueries;
 using VivaLifeHospital.Application.Features.Mediator.Results.BlogResult;
+using VivaLifeHospital.Application.Interfaces.BlogInterfaces;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Handlers.BlogHandlers
 {
-    public class GetBlogByIdWithAuthorIdQueryHandler : IRequestHandler<GetBlogByIdWithAuthorIdQuery, List<GetBlogByIdWithAuthorIdResult>>
+    public class GetBlogByIdWithAuthorIdQueryHandler : IRequestHandler<GetBlogByIdWithAuthorIdQuery, GetBlogByIdWithAuthorIdResult>
     {
-        
-        public Task<List<GetBlogByIdWithAuthorIdResult>> Handle(GetBlogByIdWithAuthorIdQuery request, CancellationToken cancellationToken)
+        private readonly IBlogRepository _repository;
+
+        public GetBlogByIdWithAuthorIdQueryHandler(IBlogRepository repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
+        }
+
+        public async Task<GetBlogByIdWithAuthorIdResult> Handle(GetBlogByIdWithAuthorIdQuery request, CancellationToken cancellationToken)
+        {
+            var values =  _repository.GetBlogByIdWithAuthor(request.Id);
+            return new GetBlogByIdWithAuthorIdResult
+            {
+                BlogId = values.BlogId,
+                Title = values.Title,
+                 CreatedDateTime = values.CreatedDateTime,
+                BlogDescription=values.Description,
+                BlogImgUrl=values.BlogImgUrl,
+                AuthorId=values.AuthorId,
+                Name=values.Author.Name,
+                Description=values.Author.Description,
+                AuthorImgUrl = values.Author.AuthorImgUrl,
+
+            };
         }
     }
 }

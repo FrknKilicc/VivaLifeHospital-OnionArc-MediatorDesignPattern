@@ -31,5 +31,11 @@ namespace VivaLifeHospital.Persistance.Repositories.BlogRepositories
             var value = _context.Blogs.Include(x => x.Author).Include(y => y.Category).OrderByDescending(z => z.BlogId).Take(3).ToList();
             return value;
         }
+
+        Blog IBlogRepository.GetBlogByIdWithAuthor(int id)
+        {
+            var value = _context.Blogs.Include(x => x.Author).Where(y => y.BlogId == id).FirstOrDefault();
+            return value;
+        }
     }
 }

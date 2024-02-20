@@ -17,11 +17,11 @@ namespace VivaLifeHospital.WebUI.ViewComponents.BlogViewComponents
         {
             ViewBag.Id = id;
             var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync($"https://localhost:7226/api/Blog/{id}");
+            var response = await client.GetAsync($"https://localhost:7226/api/Blog/GetBlogByIdWithAuthor?id={id}");
             if (response.IsSuccessStatusCode)
             {
                 var jsonData= await response.Content.ReadAsStringAsync();
-                var value = JsonConvert.DeserializeObject<ResultBlogDto>(jsonData);
+                var value = JsonConvert.DeserializeObject<ResultBlogByIdWithAuthorDto>(jsonData);
                 return View(value);
             }
             return View(null);
