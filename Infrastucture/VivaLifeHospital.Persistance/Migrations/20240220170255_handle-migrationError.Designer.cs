@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VivaLifeHospital.Persistance.Context;
 
@@ -11,9 +12,11 @@ using VivaLifeHospital.Persistance.Context;
 namespace VivaLifeHospital.Persistance.Migrations
 {
     [DbContext(typeof(VivaLifeHospitalContext))]
-    partial class VivaLifeHospitalContextModelSnapshot : ModelSnapshot
+    [Migration("20240220170255_handle-migrationError")]
+    partial class handlemigrationError
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +47,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("AboutId");
 
-                    b.ToTable("Abouts", (string)null);
+                    b.ToTable("Abouts");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Author", b =>
@@ -69,7 +72,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Banner", b =>
@@ -94,7 +97,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("BannerId");
 
-                    b.ToTable("Banners", (string)null);
+                    b.ToTable("Banners");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Blog", b =>
@@ -135,7 +138,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Category", b =>
@@ -152,7 +155,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Comment", b =>
@@ -163,7 +166,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
 
-                    b.Property<int?>("BlogId")
+                    b.Property<int>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
@@ -179,9 +182,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("CommentId");
 
-                    b.HasIndex("BlogId");
-
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Contact", b =>
@@ -213,7 +214,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("ContactID");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Department", b =>
@@ -230,7 +231,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("DepartmentId");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Doctor", b =>
@@ -260,7 +261,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Doctors", (string)null);
+                    b.ToTable("Doctors");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.MedicalProgram", b =>
@@ -290,7 +291,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasIndex("PricingId");
 
-                    b.ToTable("MedicalPrograms", (string)null);
+                    b.ToTable("MedicalPrograms");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Pricing", b =>
@@ -310,7 +311,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("PricingId");
 
-                    b.ToTable("Pricings", (string)null);
+                    b.ToTable("Pricings");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Service", b =>
@@ -335,7 +336,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("ServiceId");
 
-                    b.ToTable("Services", (string)null);
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.TagCloud", b =>
@@ -357,7 +358,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasIndex("BlogId");
 
-                    b.ToTable("TagsCloud", (string)null);
+                    b.ToTable("TagsCloud");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Testimonial", b =>
@@ -386,7 +387,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("TestimonialID");
 
-                    b.ToTable("Testimonials", (string)null);
+                    b.ToTable("Testimonials");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Blog", b =>
@@ -406,15 +407,6 @@ namespace VivaLifeHospital.Persistance.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("VivaLife.Domain.Entites.Comment", b =>
-                {
-                    b.HasOne("VivaLife.Domain.Entites.Blog", "Blog")
-                        .WithMany("Comments")
-                        .HasForeignKey("BlogId");
-
-                    b.Navigation("Blog");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Doctor", b =>
@@ -452,8 +444,6 @@ namespace VivaLifeHospital.Persistance.Migrations
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Blog", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("Tags");
                 });
 

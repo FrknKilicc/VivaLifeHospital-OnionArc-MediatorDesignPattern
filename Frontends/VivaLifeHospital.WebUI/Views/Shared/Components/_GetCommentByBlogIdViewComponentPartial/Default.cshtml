@@ -1,0 +1,20 @@
+﻿@model List<ResultCommentDto>
+
+
+<!-- Comment List Start -->
+<div class="mb-5">
+    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">Yorumlar</h4>
+    <div class="d-flex mb-4">
+        <div class="ps-3">
+            @foreach (var item in Model)
+            {
+                <h6><a href="">@item.Name</a> <small><i>@item.CreatedDate.ToShortDateString()</i></small></h6>
+                <p>
+                    @item.Description
+                </p>
+            }
+        </div>
+    </div>
+
+</div>
+<!-- Comment List End -->

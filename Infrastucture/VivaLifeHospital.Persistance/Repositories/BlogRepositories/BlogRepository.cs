@@ -27,6 +27,7 @@ namespace VivaLifeHospital.Persistance.Repositories.BlogRepositories
       
         public List<Blog> GetLast3BlogsWithAuthorNdCategory()
         {
+
             var value = _context.Blogs.Include(x => x.Author).Include(y => y.Category).OrderByDescending(z => z.BlogId).Take(3).ToList();
             return value;
         }

@@ -29,6 +29,12 @@ namespace VivaLifeHospital.WebApi.Controllers
         {
             var values = await _mediator.Send(new GetCommentByIdQuery(id));
             return Ok(values);
+        }   
+        [HttpGet("GetCommentByBlogId")]
+        public async Task<IActionResult> GetCommentByBlogId(int id)
+        {
+            var values = await _mediator.Send(new GetCommentByBlogIdQuery(id));
+            return Ok(values);
         }
         [HttpPost]
         public async Task<IActionResult> CreateComment(CreateCommentCommand command)

@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <!-- Comment -->
-                @await Component.InvokeAsync("_GetAllCommentViewComponentPartial")
+                @await Component.InvokeAsync("_GetCommentByBlogIdViewComponentPartial", ViewBag.Id)
                 <!-- Comment End -->
                 <!-- Comment Form Start -->
                 <div class="bg-light rounded p-5">
