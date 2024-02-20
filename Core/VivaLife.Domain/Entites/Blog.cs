@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,9 +19,9 @@ namespace VivaLife.Domain.Entites
         public Author Author { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        //public int? TagCloudId { get; set; } 
-        public List<TagCloud> Tags { get; set; }
-        //public int? CommentId { get; set; }
-        public List<Comment> Comments { get; set; } 
+      
+        public List<TagCloud>? Tags { get; set; }
+        
+        public List<Comment>? Comments { get; set; } 
     }
 }

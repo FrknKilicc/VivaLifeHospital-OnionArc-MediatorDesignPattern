@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VivaLifeHospital.Persistance.Context;
 
@@ -11,9 +12,11 @@ using VivaLifeHospital.Persistance.Context;
 namespace VivaLifeHospital.Persistance.Migrations
 {
     [DbContext(typeof(VivaLifeHospitalContext))]
-    partial class VivaLifeHospitalContextModelSnapshot : ModelSnapshot
+    [Migration("20240220220321_Edit-AppointmentEntity3")]
+    partial class EditAppointmentEntity3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,9 +61,8 @@ namespace VivaLifeHospital.Persistance.Migrations
                     b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("AppointmentTime")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<TimeSpan>("AppointmentTime")
+                        .HasColumnType("time");
 
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int");

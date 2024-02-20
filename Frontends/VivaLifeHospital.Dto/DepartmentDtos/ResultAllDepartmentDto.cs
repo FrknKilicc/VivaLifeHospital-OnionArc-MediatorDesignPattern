@@ -10,5 +10,7 @@ namespace VivaLifeHospital.Dto.DepartmentDtos
     {
         public int DepartmentId { get; set; }
         public string Name { get; set; }
+       
+       
     }
 }

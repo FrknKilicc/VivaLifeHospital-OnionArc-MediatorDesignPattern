@@ -29,6 +29,7 @@ namespace VivaLifeHospital.Persistance.Context
         public DbSet<Testimonial> Testimonials { get; set;}
         public DbSet<Comment> Comments { get; set;}
         public DbSet<TagCloud> TagsCloud { get; set;}
+        public DbSet<Appointment> Appointments { get; set;}
     }
 }
 

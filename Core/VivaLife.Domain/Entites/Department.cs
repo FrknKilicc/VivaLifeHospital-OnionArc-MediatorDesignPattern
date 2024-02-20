@@ -11,5 +11,6 @@ namespace VivaLife.Domain.Entites
         public int DepartmentId { get; set; }
         public string Name { get; set; }
         public List<Doctor> Doctor { get; set; }
+        public List<Appointment> Appointment { get; set; }
     }
 }
