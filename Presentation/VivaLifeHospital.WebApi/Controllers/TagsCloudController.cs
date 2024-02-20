@@ -21,6 +21,12 @@ namespace VivaLifeHospital.WebApi.Controllers
         {
             var values= await _mediator.Send(new GetTagsCloudQuery());
             return Ok(values);
+        } 
+        [HttpGet("TagsCloudByBlogId")]
+        public async Task<IActionResult> TagsCloudByBlogId(int id)
+        {
+            var values= await _mediator.Send(new GetTagsCloudByBlogIdQuery(id));
+            return Ok(values);
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> TagsCloudById(int id)
