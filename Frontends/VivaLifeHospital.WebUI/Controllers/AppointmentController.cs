@@ -9,12 +9,18 @@ namespace VivaLifeHospital.WebUI.Controllers
     public class AppointmentController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+
+        public AppointmentController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> PostAppointment(ResultAllDepartmentDto createAppointmentDto)
+        public async Task<IActionResult> PostAppointment(CreateAppointmentDto createAppointmentDto)
         {
             var client= _httpClientFactory.CreateClient();
             var jsonData= JsonConvert.SerializeObject(createAppointmentDto);

@@ -14,10 +14,10 @@
             <div class="col-lg-6">
                 <div class="bg-white text-center rounded p-5">
                     <h1 class="mb-4">Rendevu Oluştur</h1>
-                    <form method="post" asp-page="">
+                    <form method="post" asp-controller="Appointment" asp-action="PostAppointment">
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-                                <select id="department" class="form-select bg-light border-0" style="height: 55px;">
+                                <select id="department" name="DepartmentId" class="form-select bg-light border-0" style="height: 55px;">
                                     <option selected>Bölüm Seçiniz</option>
                                     @foreach (var item in Model)
                                     {
@@ -26,28 +26,39 @@
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <select id="doctor" class="form-select bg-light border-0" style="height: 55px;">
+                                <select id="doctor" name="DoctorId" class="form-select bg-light border-0" style="height: 55px; ">
                                     <option selected>Doktor Seçiniz</option>
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="İsim" style="height: 55px;">
+                                <input type="text" class="form-control bg-light border-0" name="VisitorName" placeholder="İsim" style="height: 55px;" autocomplete="off">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Mail" style="height: 55px;">
+                                <input type="email" class="form-control bg-light border-0" name="VisitorEMail" placeholder="Mail@mail.com" style="height: 55px;" autocomplete="off">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="tel" class="form-control bg-light border-0" name="PhoneNumber" placeholder="5445445445" style="height: 55px;" autocomplete="off" maxlength="11">
+                           
+                            </div> 
+                            <div class="col-12 col-sm-6">
+                                <select id="Gender" name="IsWoman" class="form-select bg-light border-0" style="height: 55px;" required>
+                                    <option value="" disabled selected>Cinsiyetinizi belirtiniz</option>
+                                    <option value="false">Erkek</option>
+                                    <option value="true">Kadın</option>
+                                </select>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="date" id="date" data-target-input="nearest">
                                     <input type="text"
-                                           class="form-control bg-light border-0 datetimepicker-input"
-                                           placeholder="Tarih" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
+                                           class="form-control bg-light border-0 datetimepicker-input" name="AppointmentDate"
+                                           placeholder="Tarih" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="time" id="time" data-target-input="nearest">
                                     <input type="text"
-                                           class="form-control bg-light border-0 datetimepicker-input"
-                                           placeholder="Saat" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
+                                           class="form-control bg-light border-0 datetimepicker-input" name="AppointmentTime"
+                                           placeholder="Saat" data-target="#time" data-toggle="datetimepicker" style="height: 55px;"autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -68,14 +79,20 @@
                     url: '@Url.Action("GetDoctorWithDepartment", "Department")' + '/' + departmanId,
                     type: 'GET',
                     dataType: 'json',
-                    // data: { departmanId: departmanId },
                     success: function (doktorlar) {
                         $('#doctor').empty();
-                        $.each(doktorlar, function (i, doktor) {
-                            $('#doctor').append($('<option></option>').val(doktor.doctorId).text(doktor.name));
-                        });
+                        if (doktorlar.length > 0) {
+                            $.each(doktorlar, function (i, doktor) {
+                                $('#doctor').append($('<option></option>').val(doktor.doctorId).text(doktor.name));
+                            });
+                        } else {
+                            $('#doctor').html('<option>Bulunamadı</option>');
+                        }
                     }
                 });
+            });
+            $('#department').click(function () {
+                $('#doctor').html('<option selected>Doktor Seçiniz</option>');
             });
         });
     </script>
