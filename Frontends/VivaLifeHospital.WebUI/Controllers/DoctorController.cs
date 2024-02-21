@@ -46,7 +46,5 @@ namespace VivaLifeHospital.WebUI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Internal Server Error: {ex.Message}");
             }
         }
-
-      
     }
 }

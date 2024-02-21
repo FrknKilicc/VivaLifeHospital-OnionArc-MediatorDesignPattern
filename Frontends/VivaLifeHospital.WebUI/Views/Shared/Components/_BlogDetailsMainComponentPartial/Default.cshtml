@@ -62,12 +62,8 @@
             <!-- Sidebar Start -->
             <div class="col-lg-4">
                 <!-- Search Form Start -->
-                <div class="mb-5">
-                    <div class="input-group">
-                        <input type="text" class="form-control p-3" placeholder="Keyword">
-                        <button class="btn btn-primary px-3"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("_GetBlogsBySearchQueryViewComponentPartial")
+
                 <!-- Search Form End -->
 
                 <!-- Category Start -->
@@ -81,7 +77,7 @@
 
                 <!-- Image Start -->
                 <div class="mb-5">
-                    <img src="img/blog-1.jpg" alt="" class="img-fluid rounded">
+                    <img src="~/VivaLifeTemp/img/blog-1.jpg" alt="" class="img-fluid rounded">
                 </div>
                 <!-- Image End -->
 
@@ -101,15 +97,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/VivaLifeTemp/lib/easing/easing.min.js"></script>
+    <script src="~/VivaLifeTemp/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/VivaLifeTemp/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/VivaLifeTemp/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="~/VivaLifeTemp/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="~/VivaLifeTemp/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/VivaLifeTemp/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="~/VivaLifeTemp/js/main.js"></script>
 </body>
 
-</html>

@@ -12,6 +12,6 @@ namespace VivaLifeHospital.Application.Interfaces.BlogInterfaces
         public  List<Blog> GetBlogsWithAuthorNdCategory();
         public List<Blog> GetLast3BlogsWithAuthorNdCategory();
         public Blog GetBlogByIdWithAuthor(int id);
-        
+        List<Blog> GetBlogsBySearch(string keyword);
     }
 }

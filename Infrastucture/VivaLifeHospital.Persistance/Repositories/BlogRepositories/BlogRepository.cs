@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,12 @@ namespace VivaLifeHospital.Persistance.Repositories.BlogRepositories
         {
             var value = _context.Blogs.Include(x => x.Author).Where(y => y.BlogId == id).FirstOrDefault();
             return value;
+        }
+
+        List<Blog> IBlogRepository.GetBlogsBySearch(string keyword)
+        {
+            var values = _context.Blogs.Include(z=>z.Author).Include(y=>y.Category).Where(x => x.Title.Contains(keyword) ).ToList();
+            return values;
         }
     }
 }

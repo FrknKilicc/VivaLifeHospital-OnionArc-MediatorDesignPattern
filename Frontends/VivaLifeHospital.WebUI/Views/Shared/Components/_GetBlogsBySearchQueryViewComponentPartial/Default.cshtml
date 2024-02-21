@@ -1,0 +1,59 @@
+﻿@model List<ResultBlogByIdWithAuthorDto>
+<div class="mb-5">
+    <div class="input-group">
+        <input id="searchKeyword" type="text" class="form-control p-3" placeholder="Keyword">
+        <button id="searchButton" class="btn btn-primary px-3"><i class="fa fa-search"></i></button>
+    </div>
+</div>
+
+<div id="searchResults"></div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#searchButton').click(function () {
+            debugger;
+            var keyword = $('#searchKeyword').val();
+            if (keyword.trim() !== '') {
+                $.ajax({
+                    url: '@Url.Action("GetBlogBySearchKeyword", "Blog")' + '?keyword=' + keyword,
+                    type: 'GET',
+                    // data: { keyword: keyword },
+                    success: function (response) {
+                        $('#searchResults').empty();
+                        if (response.length > 0) {
+                            var resultHtml = '<ul>';
+                            $.each(response, function (index, item) {
+                                resultHtml += '<li>' + item.title + '</li>'; 
+                                console.log(item.title); 
+                            });
+                            resultHtml += '</ul>';
+                            $('#searchResults').append(resultHtml);
+                        } else {
+                            $('#searchResults').text('Sonuç bulunamadı.');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            } else {
+                alert('Lütfen bir anahtar kelime girin.');
+            }
+        });
+    });
+</script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/VivaLifeTemp/lib/easing/easing.min.js"></script>
+<script src="~/VivaLifeTemp/lib/waypoints/waypoints.min.js"></script>
+<script src="~/VivaLifeTemp/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/VivaLifeTemp/lib/tempusdominus/js/moment.min.js"></script>
+<script src="~/VivaLifeTemp/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="~/VivaLifeTemp/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="~/VivaLifeTemp/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/VivaLifeTemp/js/main.js"></script>

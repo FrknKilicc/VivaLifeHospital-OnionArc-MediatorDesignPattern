@@ -46,6 +46,12 @@ namespace VivaLifeHospital.WebApi.Controllers
         {
             var value = await _mediator.Send(new GetBlogByIdWithAuthorIdQuery(id));
             return Ok(value);
+        } 
+        [HttpGet("GetBlogBySearch")]
+        public async Task<IActionResult> GetBlogBySearch(string keyword)
+        {
+            var value = await _mediator.Send(new GetBlogBySearchQuery(keyword));
+            return Ok(value);
         }
 
        
