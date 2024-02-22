@@ -31,7 +31,7 @@ namespace VivaLifeHospital.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode && responseMessage !=null)
             {
                 var jsonData= await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultBlogDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultBlogByIdWithAuthorDto>>(jsonData);
                 return Ok(values);
             }
             return BadRequest("Geçersiz İstek");
