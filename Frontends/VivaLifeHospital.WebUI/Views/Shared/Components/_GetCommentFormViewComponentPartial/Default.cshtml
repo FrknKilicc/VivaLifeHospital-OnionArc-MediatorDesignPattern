@@ -1,0 +1,17 @@
+﻿<form method="post" asp-controller="Blog" asp-action="PostComment">
+    <div class="row g-3">
+        <div class="col-12 col-sm-6">
+            <input type="hidden" name="BlogId" value="@ViewBag.Id" /> 
+            <input type="text" name="Name" class="form-control bg-white border-0" placeholder="İsim Soyisim" required style="height: 55px;">
+        </div>
+        @* <div class="col-12">
+            <input type="text" class="form-control bg-white border-0" placeholder="Website" style="height: 55px;">
+        </div> *@
+        <div class="col-12">
+            <textarea name="Description" class="form-control bg-white border-0" rows="5" placeholder="Yorum" required></textarea>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary w-100 py-3" type="submit">Gönder</button>
+        </div>
+    </div>
+</form>

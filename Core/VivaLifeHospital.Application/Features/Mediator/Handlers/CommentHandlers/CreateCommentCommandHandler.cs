@@ -26,6 +26,7 @@ namespace VivaLifeHospital.Application.Features.Mediator.Handlers.CommentHandler
                 CreatedDate = request.CreatedDate,
                 Description = request.Description,
                 Name = request.Name,
+                BlogId=request.BlogId,
             });
         }
     }

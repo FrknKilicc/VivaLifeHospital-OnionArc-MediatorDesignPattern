@@ -24,6 +24,7 @@ namespace VivaLifeHospital.Application.Features.Mediator.Handlers.CommentHandler
             var value = await _repository.GetByIdAsync(request.CommentId);
             value.Description = request.Description;
             value.CreatedDate = request.CreatedDate;
+            value.BlogId = request.BlogId;
             value.Name = request.Name;
             await _repository.UpdateAsync(value);
         }

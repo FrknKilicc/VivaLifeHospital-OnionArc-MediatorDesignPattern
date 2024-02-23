@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Text;
 using VivaLifeHospital.Dto.AppointmentDto;
-using VivaLifeHospital.Dto.DepartmentDtos;
+
 
 namespace VivaLifeHospital.WebUI.Controllers
 {
