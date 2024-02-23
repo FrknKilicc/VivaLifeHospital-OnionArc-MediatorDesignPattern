@@ -20,7 +20,7 @@ namespace VivaLifeHospital.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+       
         [HttpGet("GetDoctorWithDepartmentBySearch/{id}")]
         public async Task<ActionResult> GetDoctorWithDepartmentBySearch([FromRoute] int id, [FromQuery] string search) // from route & fromquery rootdan al queryden al 
         {

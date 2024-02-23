@@ -21,11 +21,15 @@
 
     // Date and time picker
     $('.date').datetimepicker({
-        format: 'L'
+        format: 'd.m.Y',
+        locale: 'tr'
     });
+
     $('.time').datetimepicker({
-        format: 'LT'
+        format: 'H:i',
+        locale: 'tr'
     });
+
     
     
     // Back to top button
@@ -36,10 +40,13 @@
             $('.back-to-top').fadeOut('slow');
         }
     });
+
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 250, 'linear');
         return false;
     });
+
+
 
 
     // Price carousel

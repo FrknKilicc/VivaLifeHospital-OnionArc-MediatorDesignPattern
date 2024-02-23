@@ -8,5 +8,11 @@ namespace VivaLifeHospital.WebUI.Controllers
         {
             return View();
         }
+       
+        public IActionResult GetFindDoctor()
+        {
+            return View();
+
+        }
     }
 }

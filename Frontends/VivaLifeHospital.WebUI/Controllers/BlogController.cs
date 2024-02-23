@@ -17,12 +17,12 @@ namespace VivaLifeHospital.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<IActionResult>  Index()
+        public  IActionResult Index()
         {
             return View();
         }
        
-        public async Task<IActionResult> BlogDetail(int id)
+        public IActionResult BlogDetail(int id)
         {
            
             ViewBag.Id = id;
