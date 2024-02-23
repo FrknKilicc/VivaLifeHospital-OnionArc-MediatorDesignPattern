@@ -4,7 +4,7 @@ namespace VivaLifeHospital.WebUI.Controllers
 {
     public class AboutController : Controller
     {
-        [Route("Hakkimizda")]
+        [Route("hakkimizda")]
         public IActionResult Index()
         {
             return View();

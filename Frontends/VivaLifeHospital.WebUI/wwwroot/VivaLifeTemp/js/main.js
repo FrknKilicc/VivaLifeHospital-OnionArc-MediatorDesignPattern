@@ -17,17 +17,19 @@
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
+       
+  
 
 
     // Date and time picker
     $('.date').datetimepicker({
-        format: 'd.m.Y',
+        format: 'DD.MM.YYYY',
         locale: 'tr'
     });
 
     $('.time').datetimepicker({
-        format: 'H:i',
-        locale: 'tr'
+        format: 'HH:mm',
+       /* locale: 'tr'*/
     });
 
     

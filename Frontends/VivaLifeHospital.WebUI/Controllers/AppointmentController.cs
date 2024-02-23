@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 using VivaLifeHospital.Dto.AppointmentDto;
-
 
 namespace VivaLifeHospital.WebUI.Controllers
 {
@@ -14,7 +14,7 @@ namespace VivaLifeHospital.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+       
         public IActionResult Index()
         {
             return View();

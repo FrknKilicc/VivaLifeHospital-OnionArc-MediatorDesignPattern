@@ -4,6 +4,7 @@
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
             <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Blog</h5>
             <h1 class="display-4">Blog Yazılarımızı İnceleyin</h1>
+
         </div>
         <div class="row g-5">
             @foreach (var item in Model)
@@ -13,19 +14,26 @@
                         <img class="img-fluid w-100" src="@item.BlogImgUrl" alt="">
                         <div class="p-4">
                             <a class="h3 d-block mb-3" href="/blog/blogdetail/@item.BlogId">@item.Title</a>
-                            <p class="m-0">
-                                @item.Description
-                            </p>
-                            <a class="btn btn-success" href="/blog/blogdetail/@item.BlogId">Devamını oku</a>
+                           
+                                @if (item.Description.Length > 150)
+                                {
+                                <p class="m-0"> @item.Description.Substring(0,150) ...</p>
+                                    
+                                }else
+                                {
+                                 <p class="m-0"> @item.Description</p>
+                                }
+                              
+                            
+                          @*   <a class="btn btn-success" href="/blog/blogdetail/@item.BlogId">Devamını oku</a> *@
                         </div>
                         <div class="d-flex justify-content-between border-top p-4">
                             <div class="d-flex align-items-center">
                                 <img class="rounded-circle me-2" src="@item.AuthorImg" width="25" height="25" alt="">
                                 <small>@item.AuthorName</small>
+                                <small class="ms-2" > / Yazar</small>
                             </div>
                             <div class="d-flex align-items-center">
-                                <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                                <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
                             </div>
                         </div>
                     </div>

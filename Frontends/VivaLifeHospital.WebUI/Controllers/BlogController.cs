@@ -17,7 +17,8 @@ namespace VivaLifeHospital.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public  IActionResult Index()
+        [Route("bloglar")]
+        public IActionResult Index()
         {
             return View();
         }
