@@ -31,8 +31,6 @@
         format: 'HH:mm',
        /* locale: 'tr'*/
     });
-
-    
     
     // Back to top button
     $(window).scroll(function () {
