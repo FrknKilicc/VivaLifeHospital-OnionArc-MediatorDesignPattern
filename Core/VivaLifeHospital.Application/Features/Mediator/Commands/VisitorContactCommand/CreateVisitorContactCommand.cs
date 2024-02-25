@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Commands.ContactCommand
 {
-    public class UpdateContactCommand:IRequest
+    public class CreateVisitorContactCommand:IRequest
     {
-        public int ContactID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Subject { get; set; }

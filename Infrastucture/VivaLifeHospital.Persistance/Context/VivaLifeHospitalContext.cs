@@ -20,6 +20,7 @@ namespace VivaLifeHospital.Persistance.Context
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<VisitorContact> VisitorContacts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Commands.ContactCommand
 {
-    public class RemoveContactCommand:IRequest
+    public class RemoveVisitorContactCommand:IRequest
     {
         public int Id { get; set; }
 
-        public RemoveContactCommand(int id)
+        public RemoveVisitorContactCommand(int id)
         {
             Id = id;
         }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VivaLifeHospital.Persistance.Context;
 
@@ -11,9 +12,11 @@ using VivaLifeHospital.Persistance.Context;
 namespace VivaLifeHospital.Persistance.Migrations
 {
     [DbContext(typeof(VivaLifeHospitalContext))]
-    partial class VivaLifeHospitalContextModelSnapshot : ModelSnapshot
+    [Migration("20240225134344_Updated_Contact_VisitorContact-Entities")]
+    partial class Updated_Contact_VisitorContactEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

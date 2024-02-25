@@ -11,21 +11,21 @@ using VivaLifeHospital.Application.Interfaces;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Handlers.ContactHandlers
 {
-    public class GetContactByIdQueryHandler : IRequestHandler<GetContactByIdQuery, GetContactByIdResult>
+    public class GetVisitorContactByIdQueryHandler : IRequestHandler<GetVisitorContactByIdQuery, GetVisitorContactByIdResult>
     {
-        private readonly IRepository<Contact> _repository;
+        private readonly IRepository<VisitorContact> _repository;
 
-        public GetContactByIdQueryHandler(IRepository<Contact> repository)
+        public GetVisitorContactByIdQueryHandler(IRepository<VisitorContact> repository)
         {
             _repository = repository;
         }
 
-        public async Task<GetContactByIdResult> Handle(GetContactByIdQuery request, CancellationToken cancellationToken)
+        public async Task<GetVisitorContactByIdResult> Handle(GetVisitorContactByIdQuery request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.Id);
-            return new GetContactByIdResult
+            return new GetVisitorContactByIdResult
             {
-                ContactID = value.ContactID,
+                VisitorContactID = value.VisitorContactID,
                 Email = value.Email,
                 Message = value.Message,
                 Name = value.Name,

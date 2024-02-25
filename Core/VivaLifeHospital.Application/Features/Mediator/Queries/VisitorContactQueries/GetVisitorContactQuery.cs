@@ -8,13 +8,7 @@ using VivaLifeHospital.Application.Features.Mediator.Results.ContactResult;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Queries.ContactQueries
 {
-    public class GetContactByIdQuery:IRequest<GetContactByIdResult>
+    public class GetVisitorContactQuery:IRequest<List<GetVisitorContactResult>>
     {
-        public int Id { get; set; }
-
-        public GetContactByIdQuery(int id)
-        {
-            Id = id;
-        }
     }
 }

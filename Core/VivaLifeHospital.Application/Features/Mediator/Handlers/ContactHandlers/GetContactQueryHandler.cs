@@ -22,16 +22,14 @@ namespace VivaLifeHospital.Application.Features.Mediator.Handlers.ContactHandler
 
         public async Task<List<GetContactResult>> Handle(GetContactQuery request, CancellationToken cancellationToken)
         {
-            var value = await _repository.GetAllAsync();
-            return value.Select(x => new GetContactResult
-            {
-                ContactID = x.ContactID,
-                Email = x.Email,
-                Message = x.Message,
-                Name = x.Name,
-                SendDate = x.SendDate,
-                Subject = x.Subject
-            }).ToList();
+           var value = await _repository.GetAllAsync();
+           return value.Select(z=>new GetContactResult
+           {
+               ContactId = z.ContactId,
+               ContactAddress = z.ContactAddress,
+               ContactMail = z.ContactMail,
+               ContactPhoneNumber = z.ContactPhoneNumber,
+           }).ToList();
         }
     }
 }

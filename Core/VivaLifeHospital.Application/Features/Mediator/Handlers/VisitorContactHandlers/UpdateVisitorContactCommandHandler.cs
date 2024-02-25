@@ -10,18 +10,18 @@ using VivaLifeHospital.Application.Interfaces;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Handlers.ContactHandlers
 {
-    public class UpdateContactCommandHandler : IRequestHandler<UpdateContactCommand>
+    public class UpdateVisitorContactCommandHandler : IRequestHandler<UpdateVisitorContactCommand>
     {
-        private readonly IRepository<Contact> _repository;
+        private readonly IRepository<VisitorContact> _repository;
 
-        public UpdateContactCommandHandler(IRepository<Contact> repository)
+        public UpdateVisitorContactCommandHandler(IRepository<VisitorContact> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(UpdateContactCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateVisitorContactCommand request, CancellationToken cancellationToken)
         {
-            var value = await _repository.GetByIdAsync(request.ContactID);
+            var value = await _repository.GetByIdAsync(request.VisitorContactID);
             value.Email = request.Email;
             value.SendDate = request.SendDate;
             value.Subject = request.Subject;

@@ -1,15 +1,14 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VivaLifeHospital.Application.Features.Mediator.Results.ContactResult
+namespace VivaLifeHospital.Application.Features.Mediator.Commands.ContactCommands
 {
-    public class GetContactResult
+    public class CreateContactCommand:IRequest
     {
-        public int ContactId { get; set; }
         public string ContactAddress { get; set; }
         public string ContactPhoneNumber { get; set; }
         public string ContactMail { get; set; }

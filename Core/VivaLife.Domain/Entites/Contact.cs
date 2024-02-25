@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,11 @@ namespace VivaLife.Domain.Entites
 {
     public class Contact
     {
-        public int ContactID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Subject { get; set; }
-        public string Message { get; set; }
-        public DateTime SendDate { get; set; }
+        [Key]
+        public int ContactId { get; set; }
+        public string ContactAddress { get; set; }
+        public string ContactPhoneNumber { get; set; }
+        [EmailAddress]
+        public string ContactMail { get; set; }
     }
 }

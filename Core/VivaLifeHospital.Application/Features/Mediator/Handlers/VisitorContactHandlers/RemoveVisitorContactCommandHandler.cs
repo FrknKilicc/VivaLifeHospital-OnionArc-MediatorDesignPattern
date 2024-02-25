@@ -10,16 +10,16 @@ using VivaLifeHospital.Application.Interfaces;
 
 namespace VivaLifeHospital.Application.Features.Mediator.Handlers.ContactHandlers
 {
-    public class RemoveContactCommandHandler : IRequestHandler<RemoveContactCommand>
+    public class RemoveVisitorContactCommandHandler : IRequestHandler<RemoveVisitorContactCommand>
     {
-        private readonly IRepository<Contact> _repository;
+        private readonly IRepository<VisitorContact> _repository;
 
-        public RemoveContactCommandHandler(IRepository<Contact> repository)
+        public RemoveVisitorContactCommandHandler(IRepository<VisitorContact> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(RemoveContactCommand request, CancellationToken cancellationToken)
+        public async Task Handle(RemoveVisitorContactCommand request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.Id);
             await _repository.RemoveAsync(value);

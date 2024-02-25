@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VivaLifeHospital.Persistance.Context;
 
@@ -11,9 +12,11 @@ using VivaLifeHospital.Persistance.Context;
 namespace VivaLifeHospital.Persistance.Migrations
 {
     [DbContext(typeof(VivaLifeHospitalContext))]
-    partial class VivaLifeHospitalContextModelSnapshot : ModelSnapshot
+    [Migration("20240225133007_Add_ContactEntities_Update_VisitorContact")]
+    partial class Add_ContactEntities_Update_VisitorContact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,31 +230,6 @@ namespace VivaLifeHospital.Persistance.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("VivaLife.Domain.Entites.Contact", b =>
-                {
-                    b.Property<int>("ContactId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"));
-
-                    b.Property<string>("ContactAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactMail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactPhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ContactId");
-
-                    b.ToTable("Contacts");
-                });
-
             modelBuilder.Entity("VivaLife.Domain.Entites.Department", b =>
                 {
                     b.Property<int>("DepartmentId")
@@ -454,7 +432,7 @@ namespace VivaLifeHospital.Persistance.Migrations
 
                     b.HasKey("VisitorContactID");
 
-                    b.ToTable("VisitorContacts");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("VivaLife.Domain.Entites.Appointment", b =>

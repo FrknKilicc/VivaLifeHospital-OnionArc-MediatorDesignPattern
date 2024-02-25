@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VivaLifeHospital.Application.Features.Mediator.Results.ContactResult
+namespace VivaLife.Domain.Entites
 {
-    public class GetContactByIdResult
+    public class VisitorContact
     {
-        public int ContactID { get; set; }
+        public int VisitorContactID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Subject { get; set; }
