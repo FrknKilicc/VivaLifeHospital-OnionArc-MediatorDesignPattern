@@ -25,3 +25,33 @@
     });
 </script>
 @* _GetDoctorListByDepartmentViewComponentPartial *@
+<script>
+    // var formId = "#formAppointment"
+    $("#formAppointment").submit(function (e) {
+        e.preventDefault();
+        var department = $("#department option:selected").text();
+        var doctor = $("#doctor option:selected").text();
+        var date = $("input[name='AppointmentDate']").val();
+        var time = $("input[name='AppointmentTime']").val();
+        $.ajax({
+            type: "POST",
+            url: "https://localhost:7134/Appointment/Index",
+            data: $(this).serialize(),
+            success: function (response) {
+                swal({
+                    title: "Randevu Oluşturuldu!",
+                    text: "Randevu bilgileri:\n\nDepartman: " + department +
+                        "\nDoktor: " + doctor +
+                        "\nZaman: " + date + " " + time,
+                    icon: "success"
+                });
+            },
+
+            error: function () {
+                swal("", "Randevu oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.", "error");
+            }
+        });
+    });
+
+
+</script>
