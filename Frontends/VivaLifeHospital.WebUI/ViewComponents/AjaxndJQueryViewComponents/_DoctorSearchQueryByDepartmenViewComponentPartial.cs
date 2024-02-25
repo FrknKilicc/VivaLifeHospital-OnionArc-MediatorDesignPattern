@@ -2,7 +2,7 @@
 
 namespace VivaLifeHospital.WebUI.ViewComponents.AjaxndJQueryViewComponents
 {
-    public class _AjaxNdJQueryViewComponentPartial:ViewComponent
+    public class _DoctorSearchQueryByDepartmenViewComponentPartial:ViewComponent
     {
         public IViewComponentResult Invoke()
         {

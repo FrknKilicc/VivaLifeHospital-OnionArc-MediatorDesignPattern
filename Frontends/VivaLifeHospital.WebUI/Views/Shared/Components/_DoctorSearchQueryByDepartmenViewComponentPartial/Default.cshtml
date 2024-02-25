@@ -1,4 +1,4 @@
-﻿@* burası not olacak *@
+﻿@* _DoctorSearchQueryByDepartmenViewComponentPartial *@
 <script>
     $(document).ready(function () {
         $('#searchButton222').click(function () {
@@ -62,80 +62,6 @@
         }
     });
 </script>
-@* burası not olacak *@
+@* _DoctorSearchQueryByDepartmenViewComponentPartial *@
 
-@* burası not olacak *@
-<script>
-    $(document).ready(function () {
-        $('#department').change(function () {
-            var departmanId = $(this).val();
-            $.ajax({
-                url: '@Url.Action("GetDoctorWithDepartment", "Department")' + '/' + departmanId,
-                type: 'GET',
-                dataType: 'json',
-                success: function (doktorlar) {
-                    $('#doctor').empty();
-                    if (doktorlar.length > 0) {
-                        $.each(doktorlar, function (i, doktor) {
-                            $('#doctor').append($('<option></option>').val(doktor.doctorId).text(doktor.name));
-                        });
-                    } else {
-                        $('#doctor').html('<option>Bulunamadı</option>');
-                    }
-                }
-            });
-        });
-        $('#department').click(function () {
-            $('#departmentOptions').html('<option selected>Doktor Seçiniz</option>');
-        });
-    });
-</script>
-@* burası not olacak *@
-@* burası not olacak *@
-<script>
-    $(document).ready(function () {
-        $('#searchKeyword').keyup(function () {
-            var keyword = $(this).val().trim();
-            if (keyword !== '') {
-                $.ajax({
-                    url: '@Url.Action("GetBlogBySearchKeyword", "Blog")' + '?keyword=' + keyword,
-                    type: 'GET',
-                    success: function (response) {
-                        var dropdownContent = $('#searchDropdown .list-group');
-                        dropdownContent.empty();
-                        if (response.length > 0) {
-                            $.each(response, function (index, item) {
 
-                                var listItem = '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">';
-                                listItem += '<div class="d-flex w-100 justify-content-between">';
-                                listItem += '<h5 class="mb-1">' + item.title + '</h5>';
-                                listItem += '<small>' + item.Name + '</small>'; //join ekle
-                                listItem += '</div>';
-                                listItem += '<p class="mb-1">' + item.description + '</p>';
-                                listItem += '<small>' + item.CreatedDateTime + '</small>';
-                                listItem += '</a>';
-                                dropdownContent.append(listItem);
-                            });
-
-                            $('#searchDropdown').show();
-                        } else {
-
-                            var noResultItem = '<a href="#" class="list-group-item list-group-item-action">';
-                            noResultItem += 'Sonuç bulunamadı.';
-                            noResultItem += '</a>';
-                            dropdownContent.append(noResultItem);
-
-                            $('#searchDropdown').hide();
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            } else {
-                $('#searchDropdown').hide();
-            }
-        });
-    });
-
-</script>

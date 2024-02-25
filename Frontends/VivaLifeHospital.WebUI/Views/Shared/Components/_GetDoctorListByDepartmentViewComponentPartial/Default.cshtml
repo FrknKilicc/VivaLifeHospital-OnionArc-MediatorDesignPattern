@@ -1,0 +1,27 @@
+﻿@* _GetDoctorListByDepartmentViewComponentPartial*@
+<script>
+    $(document).ready(function () {
+        $('#department').change(function () {
+            var departmanId = $(this).val();
+            $.ajax({
+                url: '@Url.Action("GetDoctorWithDepartment", "Department")' + '/' + departmanId,
+                type: 'GET',
+                dataType: 'json',
+                success: function (doktorlar) {
+                    $('#doctor').empty();
+                    if (doktorlar.length > 0) {
+                        $.each(doktorlar, function (i, doktor) {
+                            $('#doctor').append($('<option></option>').val(doktor.doctorId).text(doktor.name));
+                        });
+                    } else {
+                        $('#doctor').html('<option>Bulunamadı</option>');
+                    }
+                }
+            });
+        });
+        $('#department').click(function () {
+            $('#departmentOptions').html('<option selected>Doktor Seçiniz</option>');
+        });
+    });
+</script>
+@* _GetDoctorListByDepartmentViewComponentPartial *@
