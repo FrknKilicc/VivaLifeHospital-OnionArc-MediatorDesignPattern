@@ -25,7 +25,6 @@ namespace VivaLifeHospital.WebUI.Controllers
        
         public IActionResult BlogDetail(int id)
         {
-           
             ViewBag.Id = id;
             return View();
         }

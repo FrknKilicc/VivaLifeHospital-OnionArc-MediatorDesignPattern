@@ -20,7 +20,7 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     @await Component.InvokeAsync("_ThemeScriptsComponentPartial")
     @await Component.InvokeAsync("_DoctorSearchQueryByDepartmenViewComponentPartial")
-    @await Component.InvokeAsync("_GetBlogsBySearchQueryViewComponentPartial")
+    @await Component.InvokeAsync("_GetBlogsBySearchQueryViewComponentPartial", ViewBag.Id)
     @await Component.InvokeAsync("_GetDoctorListByDepartmentViewComponentPartial")
 </body>
 </html>
