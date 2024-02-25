@@ -85,71 +85,9 @@
         </div>
     </div>
     <!-- Blog End -->
+
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-   @*  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> *@
-    <!-- List Grup alanını Blog Search Result ile doldur-->
-    @* <script>
-        $(document).ready(function () {
-            $('#searchKeyword').keyup(function () {
-                var keyword = $(this).val().trim();
-                if (keyword !== '') {
-                    $.ajax({
-                        url: '@Url.Action("GetBlogBySearchKeyword", "Blog")' + '?keyword=' + keyword,
-                        type: 'GET',
-                        success: function (response) {
-                            var dropdownContent = $('#searchDropdown .list-group');
-                            dropdownContent.empty(); 
-                            if (response.length > 0) {
-                                $.each(response, function (index, item) {
-                                    
-                                    var listItem = '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">';
-                                    listItem += '<div class="d-flex w-100 justify-content-between">';
-                                    listItem += '<h5 class="mb-1">' + item.title + '</h5>';
-                                    listItem += '<small>' + item.Name + '</small>'; //join ekle
-                                    listItem += '</div>';
-                                    listItem += '<p class="mb-1">' + item.description + '</p>';
-                                    listItem += '<small>' + item.CreatedDateTime + '</small>'; 
-                                    listItem += '</a>';
-                                    dropdownContent.append(listItem);
-                                });
-                               
-                                $('#searchDropdown').show();
-                            } else {
-                                
-                                var noResultItem = '<a href="#" class="list-group-item list-group-item-action">';
-                                noResultItem += 'Sonuç bulunamadı.';
-                                noResultItem += '</a>';
-                                dropdownContent.append(noResultItem);
-                               
-                                $('#searchDropdown').hide();
-                            }
-                        },
-                        error: function (xhr, status, error) {
-                            console.error(xhr.responseText);
-                        }
-                    });
-                } else {
-                    $('#searchDropdown').hide();
-                }
-            });
-        });
 
-    </script> *@
-
-
-
-  @*   <!-- JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/VivaLifeTemp/lib/easing/easing.min.js"></script>
-    <script src="~/VivaLifeTemp/lib/waypoints/waypoints.min.js"></script>
-    <script src="~/VivaLifeTemp/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="~/VivaLifeTemp/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="~/VivaLifeTemp/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="~/VivaLifeTemp/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="~/VivaLifeTemp/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="~/VivaLifeTemp/js/main.js"></script> *@
 </body>
 

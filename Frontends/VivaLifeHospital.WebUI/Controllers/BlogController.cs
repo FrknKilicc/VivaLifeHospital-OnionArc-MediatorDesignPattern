@@ -51,7 +51,8 @@ namespace VivaLifeHospital.WebUI.Controllers
             var responseMessage = await client.PostAsync("https://localhost:7226/api/Comment",content);
             if(responseMessage.IsSuccessStatusCode && responseMessage != null)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BlogDetail), new { id = createCommentDto.BlogId });
+
             }
             return View("Sistem Kesintisi Nedeniyle İşleminizi Sıraya Aldık");
         }
